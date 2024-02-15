@@ -1,0 +1,6 @@
+/* BASIC STYLES HERE */
+.present-maker {
+    background-color: #217a31c6;
+    flex-grow: inherit;
+    min-height: 100vh
+}

@@ -4,11 +4,12 @@ import { Pop } from "../utils/Pop.js";
 import { setHTML } from "../utils/Writer.js";
 
 function _drawPresents() {
+    console.log("does it work");
     const presents = AppState.presents
     let htmlString = ''
     presents.forEach(present => htmlString += present.PresentHTMLTemplate)
     setHTML('presentCards', htmlString)
-    console.log(htmlString);
+    // console.log(htmlString);
 }
 
 

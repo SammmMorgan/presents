@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { PresentController } from "../controllers/PresentController.js"
 import { Present } from "../models/Present.js"
 import { api } from "./AxiosService.js"
 
@@ -10,7 +11,11 @@ class PresentService {
         const specificPresent = AppState.presents[indexOfPresent]
         const openedState = { opened: true }
         let response = await api.put(`api/gifts/${presentId}`, openedState)
-        console.log(response, specificPresent);
+        // console.log(response, specificPresent);
+        const newPresent = new Present(response.data)
+        console.log(newPresent);
+        AppState.presents.splice(indexOfPresent, 1, newPresent)
+
     }
 
     async getPresents() {

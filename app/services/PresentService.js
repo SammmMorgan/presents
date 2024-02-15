@@ -4,6 +4,11 @@ import { Present } from "../models/Present.js"
 import { api } from "./AxiosService.js"
 
 class PresentService {
+    async createPresent(presentForm) {
+        const response = await api.post('api/gifts', presentForm)
+        const madePresent = new Present(response.data)
+        AppState.presents.unshift(madePresent)
+    }
 
 
     async openPresent(presentId) {

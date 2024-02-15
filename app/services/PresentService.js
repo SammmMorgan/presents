@@ -4,6 +4,15 @@ import { api } from "./AxiosService.js"
 
 class PresentService {
 
+
+    async openPresent(presentId) {
+        const indexOfPresent = AppState.presents.findIndex(present => present.id == presentId)
+        const specificPresent = AppState.presents[indexOfPresent]
+        const openedState = { opened: true }
+        let response = await api.put(`api/gifts/${presentId}`, openedState)
+        console.log(response, specificPresent);
+    }
+
     async getPresents() {
         const response = await api.get('api/gifts')
         console.log(response.data);

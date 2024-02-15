@@ -33,4 +33,15 @@ export class PresentController {
 
         }
     }
+
+    async openPresent(presentId) {
+        try {
+            await presentService.openPresent(presentId)
+
+        } catch (error) {
+            Pop.error(error)
+            console.log(error);
+
+        }
+    }
 }
